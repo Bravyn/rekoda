@@ -6,8 +6,8 @@ from tkinter import *
 def voicer():
     sample_rate = 48000
 
-    #in seconds
-    duration = 5
+    
+    duration = 5 #in seconds
     recording1 = sd.rec(int(duration * sample_rate),samplerate = sample_rate, channels=2)
     sd.wait()
 
