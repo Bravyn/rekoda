@@ -1,1 +1,1 @@
-# A bouncing ball gae in python
+# A bouncing ball game in python
