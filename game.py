@@ -35,3 +35,19 @@ score = 0
 lives = 3
 current_level = 1
 platform_color = ORANGE
+
+#first off, our start screen
+def start_screen():
+    screen.fill(BLACK)
+    show_text_on_screen("Bounc Ball", 50, HEIGHT//4)
+
+
+def show_text_on_screen(text, font_size, y_posistion):
+    font = pygame.font.Font(None, font_size)
+    text_render = font.render(text, True, WHITE)
+    text_rect = text_render.get_rect(center = (WIDTH // 2, y_posistion))
+    screen.blit(text_render, text_rect)
+
+def change_platform_color():
+    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+start_screen()
