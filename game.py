@@ -40,6 +40,39 @@ platform_color = ORANGE
 def start_screen():
     screen.fill(BLACK)
     show_text_on_screen("Bounc Ball", 50, HEIGHT//4)
+    show_text_on_screen("Press any key to start...", 30, HEIGHT//3)
+    show_text_on_screen("Move the platform with arrow keys...", 30, HEIGHT // 2)
+    pygame.display.flip()
+    wait_for_key()
+
+def game_over():
+    screen.fill(BLACK)
+    show_text_on_screen("GAME OVER", 50, HEIGHT // 3)
+    show_text_on_screen(f"Your Final Score: {score}", 30, HEIGHT // 2)
+    show_text_on_screen("Press any key to any key to restart", 20, HEIGHT * 2 // 3)
+    pygame.display.flip()
+    wait_for_key()
+
+def victory_screen():
+    screen.fill(BLACK)
+    show_text_on_screen("YOU WIN!", 50, HEIGHT // 3)
+    show_text_on_screen(f"Your final score is {score}", 30, HEIGHT // 2)
+    show_text_on_screen("Press any key to exit...", 20, HEIGHT * 2 // 3)
+    pygame.display.flip()
+    wait_for_key()
+
+
+
+
+def wait_for_key():
+    waiting = True
+    while waiting:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                waiting = False
 
 
 def show_text_on_screen(text, font_size, y_posistion):
@@ -50,4 +83,7 @@ def show_text_on_screen(text, font_size, y_posistion):
 
 def change_platform_color():
     return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+
+
+
 start_screen()
